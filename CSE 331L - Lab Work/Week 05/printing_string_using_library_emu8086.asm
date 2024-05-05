@@ -74,7 +74,7 @@ work proc
     je return  ;jump to return for return to caller
     int 21h
     cmp al, 13  ;comparing is carrage return is same
-    je print    ;if enter press, 13 is equal to al 
+    je return    ;if enter press, 13 is equal to al 
     mov [si], al;storing the entered character to memory segment reffered by the string array
     inc si      ;increamenting address 
     dec cx ;decrementing the count register
