@@ -62,6 +62,6 @@ ret
 
 ;declaring array and variable for key
 arr db 100 dup(?)
-n dw ?
+n dw 0
 key db ?
 
