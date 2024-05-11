@@ -1,0 +1,58 @@
+1) User can provide an input number between 1 to 9 and print the following patterns according to the input (Hint: You can use a nested loop to print the asterisk patterns)
+Input1:
+4
+
+Output1:
+*
+**
+***
+****
+
+Input2:
+6
+
+Output2:
+*
+**
+***
+****
+*****
+******
+
+2) Take a number 'n' as input from the user between 1-9 and print it 'n' times. (Explanation - If '7' is given as input, it is printed 7 times, if '4' is given as input then the number '4' is printed 4 times)
+Input1:
+7
+
+Output1:
+7777777
+
+Input2:
+4
+
+Output2:
+4444
+
+3) Use a procedure to carry out the following task - take 2 numbers input from the user, add them (so that the result is less than 10) and print the output. Remember you have to use a procedure to carry out this task and call it. 
+Input1:
+1
+2
+
+Output1:
+3
+
+Input2:
+4
+5
+
+Output2:
+9
+
+4) Take a number 'n' as user input and print "Hello World" n times
+Input:
+4
+
+Output:
+Hello World
+Hello World
+Hello World
+Hello World
