@@ -29,7 +29,16 @@ org 100h
     print 13
     
     ;checking palindrome or not
-    mov cx, length_word     ;set the counting register as length
+    
+    ;for more efficiency, we can check the half length only
+    ;(length // 2)
+    mov ax, length_word     ;taking the length to AX as dividend 
+    mov bl, 2               ;set the divisor as 2
+    div bl                  ;calling the unsigned division qoutient part will be store in al
+    mov ch, 0               ;make sure that higher bit of CX is set as zero
+    mov cl, al              ;copy the qoutient to cl, combining ch and cl it will work as CX
+    ;mov cx, length_word    ;set the counting register as length
+    ;initializing source and destination index
     dec si                  ;decreamenting the si for the last content address
     mov di, si              ;storing the last content address in destination index regsiter
     lea si, word            ;storing the first content address in source index register
