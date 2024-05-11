@@ -69,18 +69,38 @@ string2 db 100 dup(?)
 n_str1 db 0
 n_str2 db 0
 
+;recursive call caused recursive return,
+;so it will take some extra clock cycle for returning from the recursive call
+;lets make it more efficient
 ;procedure for taking input
-input_string proc
+input_string_recursive proc
     cmp cx, 0;base case for return
     je return_from_input    ;jump to return for return to caller
     int 21h
     cmp al, 13              ;comparing is carrage return is same
-    je return_from_input    ;if enter press, 13 is equal to al 
+    je return_from_input_recursive    ;if enter press, 13 is equal to al 
     mov [si], al;storing the entered character to memory segment reffered by the string array
     inc bl      ;counting the length
     inc si      ;increamenting address 
     dec cx      ;decrementing the count register
-    call input_string ;recursive call for running a loop
-    return_from_input:
+    call input_string_recursive ;recursive call for running a loop
+    return_from_input_recursive:
         ret
+input_string_recursive endp 
+
+;without recursive call
+input_string proc
+    start:
+        cmp cx, 0;base case for return
+        je return_from_input    ;jump to return for return to caller
+        int 21h
+        cmp al, 13              ;comparing is carrage return is same
+        je return_from_input    ;if enter press, 13 is equal to al 
+        mov [si], al;storing the entered character to memory segment reffered by the string array
+        inc bl      ;counting the length
+        inc si      ;increamenting address 
+        dec cx      ;decrementing the count register
+        jmp start
+        return_from_input:
+            ret
 input_string endp
