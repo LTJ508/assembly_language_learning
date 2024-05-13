@@ -1,0 +1,12 @@
+1) Take a user string input and stop when 'Enter' is pressed. The input would be between 1-9 letters, and print the number of letters in the string. 
+Input1:
+regret 
+
+Output1:
+6
+
+Input2:
+fail 
+
+Output2:
+4
